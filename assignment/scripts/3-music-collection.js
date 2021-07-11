@@ -41,7 +41,7 @@ function search (item) {
       searchResult.push(searchInput);
     } // end if loop
   } // end for loop
-  return searchResult
+  return searchResult;   // ---> this closes the function and stops looping. Reason for line 77 showing an empty searchReult array and not collection. Stuck here.
 } // end search
 
 
@@ -68,7 +68,10 @@ console.log('Records by Led Zeppelin:', findByArtist('Led Zeppelin'));
 // call search to test
 
 // should have one searches matching this criteria in the output in the new array: searchResult
-console.log(search({artist: 'NF', yearPublished: 2019})); 
+console.log(search({artist: 'NF', yearPublished: 2019}));
 
 // should return an empty array
 console.log(search({artist: 'Ray Charles', yearPublished: 1957}));
+
+// should return collection array
+console.log(search({}));
