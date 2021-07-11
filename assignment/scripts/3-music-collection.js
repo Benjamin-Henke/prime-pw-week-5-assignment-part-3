@@ -24,14 +24,25 @@ function showCollection(array) {
 
 // declaring findByArtist
 function findByArtist(artist) {
-  let searchResult = [];
+  let searchArtist = [];
   for (let song of collection) {
     if (song.artist === artist) {
-      searchResult.push(song);
+      searchArtist.push(song);
     } // end if statement
   } // end for loop
-  return searchResult;
+  return searchArtist;
 } // end findByArtist
+
+// declaring search --> STRETCH GOAL
+function search (item) {
+  let searchResult = [];
+  for (let searchInput of collection) {
+    if (item.artist === searchInput.artist && item.yearPublished === searchInput.yearPublished) {
+      searchResult.push(searchInput);
+    } // end if loop
+  } // end for loop
+  return searchResult
+} // end search
 
 
 // calling addToCollectionto test. adding albums to collection.
@@ -48,5 +59,16 @@ console.log(collection);
 showCollection(collection);
 
 // call findByArtist to test
-console.log('Songs by Sublime:', findByArtist('Sublime'));
-console.log('Songs by T-Pain', findByArtist('T-Pain'));
+console.log('Records by Sublime:', findByArtist('Sublime'));
+console.log('Records by T-Pain:', findByArtist('T-Pain'));
+console.log('Records by Led Zeppelin:', findByArtist('Led Zeppelin'));
+
+
+// Streach Goal
+// call search to test
+
+// should have one searches matching this criteria in the output in the new array: searchResult
+console.log(search({artist: 'NF', yearPublished: 2019})); 
+
+// should return an empty array
+console.log(search({artist: 'Ray Charles', yearPublished: 1957}));
